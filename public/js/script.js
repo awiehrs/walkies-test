@@ -6,17 +6,7 @@ $(document).ready(() => {
   const express = require("express");
   const exphbs = require("express-handlebars");
   const mysql = require("mysql");
-
   const app = express();
-
-  $(".addForm").hide();
-
-  function addFormDisplay(e) {
-    e.preventDefault();
-    $(".addForm").show();
-  }
-
-  $(".addButton").click(addFormDisplay);
 
   // Set the port of our application
   // process.env.PORT lets the port be set by Heroku
@@ -29,6 +19,26 @@ $(document).ready(() => {
   app.engine("handlebars", exphbs({ defaultLayout: "main" }));
   app.set("view engine", "handlebars");
 
+<<<<<<< HEAD
+=======
+  // Button functions
+
+  function viewClients(e) {
+    e.preventDefault();
+    $(".homePage").addClass("hidePage");
+    $(".dogBox").removeClass("hidePage");
+    // Add script to change text on button from "View Client List" to "View Home Page" or make a second button for view home appear
+  }
+
+  function addFormDisplay(e) {
+    e.preventDefault();
+    $(".addForm").removeClass("hidePage");
+  }
+
+  $(".addDogButton").click(addFormDisplay);
+  $(".topBtn").click(viewClients);
+
+>>>>>>> f9403f5abb4ff32f6d687a3a506795d84c88763f
   $("input#newDog").on("click", () => {
     const dog_Name = $("input#dog_Name").val();
     if ($.trim(dog_name) !== " ") {
@@ -49,7 +59,19 @@ $(document).ready(() => {
     } else {
       $.post("ajax/long_walk.php", { long_walk: false });
     }
+    const address = $("input#address").val();
+    //Script for owner address
+    const phone_number = $("input#phone_number").val();
+    //Script for phone number
+    const extra_notes = $("input#extra_notes").val();
+    //Script for recording extra notes
+    const stage = 0;
+    // starting stage is 0, verify if this syntax is correct
+    const assigned_walker = 0;
+    // assigned walker is default 0
+    $(".addForm").addClass("hidePage");
   });
+
   // Start our server so that it can begin listening to client requests.
   // Log (server-side) when our server has started
   app.listen(PORT, () => console.log(`Server listening on: http://localhost:${PORT}`)
