@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable camelcase */
 $(document).ready(() => {
   const todayDisplay = moment().format("ddd[ - ] MMMM Do[,] YYYY");
   console.log(todayDisplay);
@@ -31,23 +29,6 @@ $(document).ready(() => {
   app.engine("handlebars", exphbs({ defaultLayout: "main" }));
   app.set("view engine", "handlebars");
 
-  // const connection = mysql.createConnection({
-  //     host: 'localhost',
-  //     port: 3306,
-  //     user: 'root',
-  //     password: '',
-  //     database: 'hg1sixrm9gn0c7w7',
-  // });
-
-  // connection.connect((err) => {
-  //     if (err) {
-  //         console.error(`error connecting: ${err.stack}`);
-  //         return;
-  //     }
-
-  //     console.log(`connected as id ${connection.threadId}`);
-  // });
-
   $("input#newDog").on("click", () => {
     const dog_Name = $("input#dog_Name").val();
     if ($.trim(dog_name) !== " ") {
@@ -71,7 +52,6 @@ $(document).ready(() => {
   });
   // Start our server so that it can begin listening to client requests.
   // Log (server-side) when our server has started
-  // eslint-disable-next-line prettier/prettier
   app.listen(PORT, () => console.log(`Server listening on: http://localhost:${PORT}`)
   );
 });
