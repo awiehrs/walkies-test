@@ -1,14 +1,14 @@
-var express = require("express");
+const express = require("express");
 
-var router = express.Router();
+const router = express.Router();
 
-var db = require("../models/index.js");
+const db = require("../models/index.js");
 
-module.exports = function (app) {
-    app.get("/", function (req, res) {
-        res.render("index.js");
-    });
-}
+module.exports = function(app) {
+  app.get("/", (req, res) => {
+    res.render("index");
+  });
+};
 
-  // Export routes for server.js to use.
-  module.exports = router;
+// Export routes for server.js to use.
+module.exports = router;

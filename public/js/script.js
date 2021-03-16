@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 $(document).ready(() => {
   const todayDisplay = moment().format("ddd[ - ] MMMM Do[,] YYYY");
   console.log(todayDisplay);
