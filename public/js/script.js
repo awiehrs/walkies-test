@@ -22,15 +22,14 @@ $(document).ready(() => {
 <<<<<<< HEAD
 =======
   // Button functions
-
-  function viewClients(e) {
+  function viewClients() {
     e.preventDefault();
     $(".homePage").addClass("hidePage");
     $(".dogBox").removeClass("hidePage");
     // Add script to change text on button from "View Client List" to "View Home Page" or make a second button for view home appear
   }
 
-  function addFormDisplay(e) {
+  function addFormDisplay() {
     e.preventDefault();
     $(".addForm").removeClass("hidePage");
   }
@@ -38,8 +37,14 @@ $(document).ready(() => {
   $(".addDogButton").click(addFormDisplay);
   $(".topBtn").click(viewClients);
 
+<<<<<<< HEAD
 >>>>>>> f9403f5abb4ff32f6d687a3a506795d84c88763f
   $("input#newDog").on("click", () => {
+=======
+
+  //add new dog
+  $("input#saveForm").on("click", () => {
+>>>>>>> e3fcd10e57a3e23f1893c1e413f615fb59d0ae95
     const dog_Name = $("input#dog_Name").val();
     if ($.trim(dog_name) !== " ") {
       $.post("ajax/dog_Name.php", { dog_Name: dog_Name });
