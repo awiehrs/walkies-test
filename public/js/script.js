@@ -76,4 +76,5 @@ $(document).ready(() => {
   // eslint-disable-next-line prettier/prettier
   app.listen(PORT, () => console.log(`Server listening on: http://localhost:${PORT}`)
   );
+  // eslint-disable-next-line prettier/prettier
 });
