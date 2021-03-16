@@ -37,6 +37,7 @@ $(document).ready(() => {
   $(".addDogButton").click(addFormDisplay);
   $(".topBtn").click(viewClients);
 
+
   //add new dog
   $("input#saveForm").on("click", () => {
     const dog_Name = $("input#dog_Name").val();
