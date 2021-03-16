@@ -5,11 +5,6 @@ $(document).ready(() => {
   console.log(todayDisplay);
   $("#currentDay").text(todayDisplay);
 
-  
-
-  // Sets up the Express app to handle data parsing
-  
-
   // Button functions
 
   function viewClients(e) {
@@ -22,6 +17,7 @@ $(document).ready(() => {
   function addFormDisplay(e) {
     e.preventDefault();
     $(".addForm").removeClass("hidePage");
+    $(".dogBox").addClass("hidePage");
   }
 
   $(".addDogButton").click(addFormDisplay);
