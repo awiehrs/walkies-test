@@ -1,7 +1,14 @@
-var db = require("../models");
+const express = require("express");
 
-module.exports = function (app) {
-    app.get("/", function (req, res) {
-        res.render("index");
-    });
-}
+const router = express.Router();
+
+const db = require("../models/index.js");
+
+module.exports = function(app) {
+  app.get("/", (req, res) => {
+    res.render("index");
+  });
+};
+
+// Export routes for server.js to use.
+module.exports = router;
