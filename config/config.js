@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+console.log("hit config.js");
 module.exports = {
   "development": {
     "username": process.env.MYSQL_USER,
@@ -19,3 +20,4 @@ module.exports = {
     "dialect": "mysql"
   }
 };
+

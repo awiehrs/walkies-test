@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 module.exports = (sequelize, DataTypes) => {
+  console.log("hit dog.js");
   const dog = sequelize.define("dog", {
     dog_name: {
       type: DataTypes.VARCHAR,

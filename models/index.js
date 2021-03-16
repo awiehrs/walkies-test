@@ -10,6 +10,7 @@ const config = require(`${__dirname}/../config/config.js`)[env];
 const db = {};
 let sequelize;
 
+
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
@@ -20,6 +21,8 @@ if (config.use_env_variable) {
     config
   );
 }
+
+console.log("hit index.js")
 
 fs.readdirSync(__dirname)
   .filter((file) => {
@@ -36,9 +39,11 @@ Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
+  console.log("finished index.js")
 });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+

@@ -5,3 +5,5 @@ module.exports = function (app) {
         res.render("index");
     });
 }
+
+console.log("got past html-routes.js")
