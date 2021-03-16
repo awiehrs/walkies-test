@@ -30,7 +30,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INT,
       defaultValue: 0
     },
-    total_walks: DataTypes.INT
+    total_walks: {
+      type: DataTypes.INT,
+      allowNull: false
+    }
   });
   return dog;
 };
