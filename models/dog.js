@@ -3,36 +3,36 @@ module.exports = (sequelize, DataTypes) => {
   console.log("hit dog.js");
   const dog = sequelize.define("dog", {
     dog_name: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: false
     },
     breed: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: false
     },
     owner_name: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: false
     },
     address: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: false
     },
     phone_number: {
-      type: DataTypes.VARCHAR,
+      type: DataTypes.STRING,
       allowNull: false
     },
     extra_notes: DataTypes.TEXT,
     stage: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       defaultValue: 0
     },
     assigned_walker: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       defaultValue: 0
     },
     total_walks: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   });
