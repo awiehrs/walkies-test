@@ -8,11 +8,7 @@ $(document).ready(() => {
   
 
   // Sets up the Express app to handle data parsing
-  app.use(express.urlencoded({ extended: true }));
-  app.use(express.json());
-
-  app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-  app.set("view engine", "handlebars");
+  
 
   // Button functions
 
