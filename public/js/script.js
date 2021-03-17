@@ -1,4 +1,3 @@
-const app = express();
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 $(document).ready(() => {
@@ -7,44 +6,33 @@ $(document).ready(() => {
   $("#currentDay").text(todayDisplay);
 
   // Use Handlebars to render the main index.html page with the movies in it.
-  fetch("/api/all", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
-
   let formDisplay = false;
-  let clientsDisplay = false;
+  const clientsDisplay = false;
 
   // Button functions
-  function viewClients(e) {
-    e.preventDefault();
+  function viewClients() {
     $(".homePage").addClass("hidePage");
     $(".dogBox").removeClass("hidePage");
     // Add script to change text on button from "View Client List" to "View Home Page" or make a second button for view home appear
   }
 
-  function HideClients(e) {
-    e.preventDefault();
+  function HideClients() {
     $(".homePage").removeClass("hidePage");
     $(".dogBox").addClass("hidePage");
     // Add script to change text on button from "View Client List" to "View Home Page" or make a second button for view home appear
   }
 
-  function DisplayForm(e) {
-    e.preventDefault();
+  function DisplayForm() {
     $(".addForm").removeClass("hidePage");
     $(".dogBox").addClass("hidePage");
   }
 
-  function HideForm(e) {
-    e.preventDefault();
+  function HideForm() {
     $(".addForm").addClass("hidePage");
     $(".dogBox").removeClass("hidePage");
   }
 
-  $(".addDogButton").on("click", () => {
+  function FormBtn() {
     if ((formDisplay = false)) {
       DisplayForm();
       formDisplay = true;
@@ -52,17 +40,20 @@ $(document).ready(() => {
       HideForm();
       formDisplay = false;
     }
-  });
+  }
 
-  $(".topBtn").on("click", () => {
-    if ((clientsDisplay = false)) {
-      viewClients();
-      clientsDisplay = true;
+  function ClientBtn() {
+    if ((formDisplay = false)) {
+      DisplayForm();
+      formDisplay = true;
     } else {
-      HideClients();
-      clientsDisplay = false;
+      HideForm();
+      formDisplay = false;
     }
-  });
+  }
+
+  $(".addDogButton").click(FormBtn);
+  $(".topBtn").click(ClientBtn);
 
   //submit new dog
   $("input#newDog").on("click", () => {
@@ -99,17 +90,17 @@ $(document).ready(() => {
 
     // Loop stages
     switch (stage) {
-    case 1:
-      // code block
-      newStage = 2;
-      break;
-    case 2:
-      // code block
-      newStage = 3;
-      break;
-    case 3:
-      // code block
-      newStage = 1;
+      case 1:
+        // code block
+        newStage = 2;
+        break;
+      case 2:
+        // code block
+        newStage = 3;
+        break;
+      case 3:
+        // code block
+        newStage = 1;
     }
 
     //send the put request
