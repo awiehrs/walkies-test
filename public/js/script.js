@@ -5,6 +5,17 @@ $(document).ready(() => {
   console.log(todayDisplay);
   $("#currentDay").text(todayDisplay);
 
+  // Use Handlebars to render the main index.html page with the movies in it.
+  app.get("/", (req, res) => {
+    connection.query("SELECT * FROM dogs;", (err, data) => {
+      if (err) {
+        return res.status(500).end();
+      }
+
+      res.render("index", { dogs: data });
+    });
+  });
+
   // Button functions
   function viewClients(e) {
     e.preventDefault();
@@ -70,7 +81,7 @@ $(document).ready(() => {
         // code block
         newStage = 1;
     }
-    
+
     //send the put request
     $.ajax("/api/dogs/" + id, {
       type: "PUT"
