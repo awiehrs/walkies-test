@@ -6,7 +6,6 @@ $(document).ready(() => {
   $("#currentDay").text(todayDisplay);
 
   // Button functions
-
   function viewClients(e) {
     e.preventDefault();
     $(".homePage").addClass("hidePage");
@@ -23,38 +22,64 @@ $(document).ready(() => {
   $(".addDogButton").click(addFormDisplay);
   $(".topBtn").click(viewClients);
 
+  //submit new dog
   $("input#newDog").on("click", () => {
+    //pull data from form
     const dog_Name = $("input#dog_Name").val();
-    if ($.trim(dog_name) !== " ") {
-      $.post("ajax/dog_Name.php", { dog_Name: dog_Name });
-    }
     const breed = $("input#breed").val();
-    if ($.trim(breed) !== " ") {
-      $.post("ajax/breed.php", { breed: breed });
-    }
     const owner_Name = $("input#owner_Name").val();
-    if ($.trim(owner_Name) !== " ") {
-      $.post("ajax/owner_Name.php", { owner_Name: owner_Name });
-    }
     const dog_info = $("input#dog_info").val();
-    $.post("ajax/dog_info.php", { dog_info: dog_info });
-    if ($("#long_walk").attr("checked")) {
-      $.post("ajax/long_walk.php", { long_walk: true });
-    } else {
-      $.post("ajax/long_walk.php", { long_walk: false });
-    }
     const address = $("input#address").val();
-    //Script for owner address
     const phone_number = $("input#phone_number").val();
-    //Script for phone number
     const extra_notes = $("input#extra_notes").val();
-    //Script for recording extra notes
-    const stage = 0;
-    // starting stage is 0, verify if this syntax is correct
-    const assigned_walker = 0;
-    // assigned walker is default 0
+
+    // Store new dog data
+    $.post("api/dogs", {
+      json_string: JSON.stringify({
+        dog_Name: dog_Name,
+        breed: breed,
+        owner_Name: owner_Name,
+        dog_info: dog_info,
+        assigned_walker: assigned_walker,
+        address: address,
+        phone_number: phone_number,
+        extra_notes: extra_notes,
+        stage: stage,
+        assigned_walker: assigned_walker
+      })
+    });
     $(".addForm").addClass("hidePage");
   });
 
+  $(".changeWalkState").on("click", function(event) {
+    const id = $(this).data("id");
+    const stage = $(this).data("newStage");
+    const newStage = 1;
 
+    // Loop stages
+    switch (stage) {
+      case 1:
+        // code block
+        newStage = 2;
+        break;
+      case 2:
+        // code block
+        newStage = 3;
+        break;
+      case 3:
+        // code block
+        newStage = 1;
+    }
+    
+    //send the put request
+    $.ajax("/api/dogs/" + id, {
+      type: "PUT"
+    }).then(() => {
+      console.log("Changed stage to ", newStage);
+      location.reload();
+    });
+
+    console.log({ id });
+    console.log({ newStage });
+  });
 });

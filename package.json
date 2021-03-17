@@ -1,5 +1,5 @@
 {
-    "name": "project2",
+    "name": "walkies-test",
     "version": "1.0.0",
     "description": "Dog walk management system",
     "main": "server.js",
