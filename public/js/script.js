@@ -46,19 +46,24 @@ $(document).ready(() => {
     $(".dogBox").addClass("hidePage");
   }
 
-  $(".addDogButton").click(
-    if (formDisplay = false) {
-      DisplayForm()
+  $(".addDogButton").on("click", () => {
+    if ((formDisplay = false)) {
+      DisplayForm();
       formDisplay = true;
     } else {
-      HideForm()
-    });
+      HideForm();
+      formDisplay = false;
+    }
+  });
 
-  $(".topBtn").click(
-    if (clientsDisplay = false) {
-    viewClients() 
-  } else {
-    HideClients()
+  $(".topBtn").on("click", () => {
+    if ((clientsDisplay = false)) {
+      viewClients();
+      clientsDisplay = true;
+    } else {
+      HideClients();
+      clientsDisplay = false;
+    }
   });
 
   //submit new dog
@@ -92,21 +97,21 @@ $(document).ready(() => {
   $(".changeWalkState").on("click", function(event) {
     const id = $(this).data("id");
     const stage = $(this).data("newStage");
-    let newStage = ;
+    let newStage = 1;
 
     // Loop stages
     switch (stage) {
-      case 1:
-        // code block
-        newStage = 2;
-        break;
-      case 2:
-        // code block
-        newStage = 3;
-        break;
-      case 3:
-        // code block
-        newStage = 1;
+    case 1:
+      // code block
+      newStage = 2;
+      break;
+    case 2:
+      // code block
+      newStage = 3;
+      break;
+    case 3:
+      // code block
+      newStage = 1;
     }
 
     //send the put request
