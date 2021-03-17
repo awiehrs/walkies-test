@@ -1,3 +1,4 @@
+const app = express();
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 $(document).ready(() => {
