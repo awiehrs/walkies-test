@@ -22,8 +22,6 @@ if (config.use_env_variable) {
   );
 }
 
-console.log("hit index.js")
-
 fs.readdirSync(__dirname)
   .filter((file) => {
     return (

@@ -5,8 +5,11 @@
     <div class="container">
         <div class="lead" id="currentDay">
         </div><br>
-        <div class="buttonDiv topBtn">
+        <div class="viewClients topBtn">
             View Client List
+        </div>
+        <div class="viewHome topBtn">
+            Home
         </div>
         <!-- Employees List-->
         <div class="employeesBox">
@@ -70,15 +73,15 @@
         <div class="dogBox hidePage">
             <div class="addDogButton"><button class="topBtn">Add New Dog to Client List</button></div><br>
             <ol class="clientList">
-                {{#each dogs}}
-
+                {{#each dog}}
+                {{> dog/dogs-block}}
                 {{/each}}
             </ol>
         </div>
 
         <!--Add Dog Form-->
         <div class="addForm hidePage">
-            <div class="formHead"></div>
+            <div class="formHead"><p class="exit"><b>X</b></p></div>
             <form method="post" action="">
             <li id="li_1" >
             <label class="description" for="dog_Name">Dog's Name </label>

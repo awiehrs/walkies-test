@@ -5,6 +5,7 @@ $(document).ready(() => {
   console.log(todayDisplay);
   $("#currentDay").text(todayDisplay);
 
+  $(".viewHome").hide();
   // Use Handlebars to render the main index.html page with the movies in it.
   let formDisplay = false;
   const clientsDisplay = false;
@@ -20,6 +21,8 @@ $(document).ready(() => {
   function HideClients() {
     $(".homePage").removeClass("hidePage");
     $(".dogBox").addClass("hidePage");
+    $(".viewHome").hide();
+    $(".viewClients").show();
     // Add script to change text on button from "View Client List" to "View Home Page" or make a second button for view home appear
   }
 
@@ -31,32 +34,43 @@ $(document).ready(() => {
   function HideForm() {
     $(".addForm").addClass("hidePage");
     $(".dogBox").removeClass("hidePage");
+    $(".bottomPaws").show();
   }
 
   function FormBtn() {
-    if ((formDisplay = false)) {
-      DisplayForm();
-      HideClients();
-      formDisplay = true;
-    } else {
-      HideForm();
-      formDisplay = false;
-    }
+    $(".addForm").removeClass("hidePage");
+    $(".dogBox").addClass("hidePage");
+    $(".bottomPaws").hide();
+    // if ((formDisplay = false)) {
+    //   DisplayForm();
+    //   HideClients();
+    //   formDisplay = true;
+    // } else {
+    //   HideForm();
+    //   formDisplay = false;
+    // }
   }
 
   function ClientBtn() {
-    if ((formDisplay = false)) {
-      viewClients();
-      HideForm();
-      formDisplay = true;
-    } else {
-      HideClients();
-      formDisplay = false;
-    }
+    console.log("hit view clients button");
+    $(".homePage").addClass("hidePage");
+    $(".dogBox").removeClass("hidePage");
+    $(".viewClients").hide();
+    $(".viewHome").show();
+    //if ((formDisplay = false)) {
+    //   viewClients();
+    //   HideForm();
+    //   formDisplay = true;
+    // } else {
+    //   HideClients();
+    //   formDisplay = false;
+    // }
   }
 
   $(".addDogButton").click(FormBtn);
-  $(".topBtn").click(ClientBtn);
+  $(".viewClients").click(ClientBtn);
+  $(".exit").click(HideForm);
+  $(".viewHome").click(HideClients)
 
   //submit new dog
   $("input#newDog").on("click", () => {
