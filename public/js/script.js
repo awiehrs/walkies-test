@@ -70,7 +70,7 @@ $(document).ready(() => {
   $(".addDogButton").click(FormBtn);
   $(".viewClients").click(ClientBtn);
   $(".exit").click(HideForm);
-  $(".viewHome").click(HideClients)
+  $(".viewHome").click(HideClients);
 
   //submit new dog
   $("input#newDog").on("click", () => {
@@ -105,6 +105,7 @@ $(document).ready(() => {
   function stageLoop() {
     const stage = $(this).data("newStage");
     // Loop stages
+    /*eslint indent: [3, 9, {"SwitchCase": 1}]*/
     switch (stage) {
       case "A":
         newStage = "B";
