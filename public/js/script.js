@@ -16,6 +16,7 @@ $(document).ready(() => {
     });
   });
 
+  let formDisplay = false;
   // Button functions
   function viewClients(e) {
     e.preventDefault();
@@ -24,14 +25,38 @@ $(document).ready(() => {
     // Add script to change text on button from "View Client List" to "View Home Page" or make a second button for view home appear
   }
 
-  function addFormDisplay(e) {
+  function HideClients(e) {
+    e.preventDefault();
+    $(".homePage").addClass("hidePage");
+    $(".dogBox").removeClass("hidePage");
+    // Add script to change text on button from "View Client List" to "View Home Page" or make a second button for view home appear
+  }
+
+  function DisplayForm(e) {
     e.preventDefault();
     $(".addForm").removeClass("hidePage");
     $(".dogBox").addClass("hidePage");
   }
 
-  $(".addDogButton").click(addFormDisplay);
-  $(".topBtn").click(viewClients);
+  function HideForm(e) {
+    e.preventDefault();
+    $(".addForm").removeClass("hidePage");
+    $(".dogBox").addClass("hidePage");
+  }
+
+  $(".addDogButton").click(
+    if (formDisplay = false) {
+      DisplayForm()
+    } else {
+      HideForm()
+    });
+
+  $(".topBtn").click(
+    if (formDisplay = false) {
+    viewClients(e) 
+  } else {
+    HideClients(e)
+  });
 
   //submit new dog
   $("input#newDog").on("click", () => {
@@ -65,7 +90,7 @@ $(document).ready(() => {
   $(".changeWalkState").on("click", function(event) {
     const id = $(this).data("id");
     const stage = $(this).data("newStage");
-    const newStage = 1;
+    let newStage = ;
 
     // Loop stages
     switch (stage) {
