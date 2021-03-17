@@ -7,14 +7,11 @@ $(document).ready(() => {
   $("#currentDay").text(todayDisplay);
 
   // Use Handlebars to render the main index.html page with the movies in it.
-  app.get("/", (req, res) => {
-    connection.query("SELECT * FROM dogs;", (err, data) => {
-      if (err) {
-        return res.status(500).end();
-      }
-
-      res.render("index", { dogs: data });
-    });
+  fetch("/api/all", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
   });
 
   let formDisplay = false;
