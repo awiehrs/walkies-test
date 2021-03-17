@@ -31,7 +31,10 @@
             <div class="employeeOne" id="column">
                 <div class="employeeOneNeedWalk" id="innerRow">
                 <ol class="employeeOneWalkList">
-                      
+                {{#each dog}}
+                {{#unless stage 2}}
+                {{/unless}}
+                {{/each}}
                 </ol>
                 </div>
                 <div class="employeeOneActiveWalk" id="innerRow">
@@ -45,7 +48,10 @@
             <div class="employeeTwo" id="column">
                 <div class="employeeTwoNeedWalk" id="innerRow">
                 <ol class="employeeTwoWalkList">
-                      
+                {{#each dog}}
+                {{#unless stage 3}}
+                {{/unless}}
+                {{/each}}
                 </ol>
                 </div>
                 <div class="employeeTwoActiveWalk" id="innerRow">
@@ -74,7 +80,8 @@
             <div class="addDogButton"><button class="topBtn">Add New Dog to Client List</button></div><br>
             <ol class="clientList">
                 {{#each dog}}
-                {{}}
+                {{#unless stage 1}}
+                {{/unless}}
                 {{/each}}
             </ol>
         </div>
