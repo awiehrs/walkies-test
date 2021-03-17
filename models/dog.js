@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 module.exports = (sequelize, DataTypes) => {
-  const dog = sequelize.define("dog", {
+  const Dog = sequelize.define("Dog", {
     dog_name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -35,5 +35,5 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   });
-  return dog;
+  return Dog;
 };
