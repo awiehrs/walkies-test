@@ -33,13 +33,22 @@
                 <ol class="employeeOneWalkList">
                 {{#each dog}}
                 {{#unless stage 2}}
+                {{#unless assigned_walker 1}}
+
+                {{/unless}}
                 {{/unless}}
                 {{/each}}
                 </ol>
                 </div>
                 <div class="employeeOneActiveWalk" id="innerRow">
                 <ol class="employeeOneWalking">
-                      
+                {{#each dog}}
+                {{#unless stage 3}}
+                {{#unless assigned_walker 1}}
+
+                {{/unless}}
+                {{/unless}}
+                {{/each}}
                 </ol>
                 </div>
                 
@@ -49,14 +58,23 @@
                 <div class="employeeTwoNeedWalk" id="innerRow">
                 <ol class="employeeTwoWalkList">
                 {{#each dog}}
-                {{#unless stage 3}}
+                {{#unless stage 2}}
+                {{#unless assigned_walker 2}}
+                {{> dog/dogs-block}}
+                {{/unless}}
                 {{/unless}}
                 {{/each}}
                 </ol>
                 </div>
                 <div class="employeeTwoActiveWalk" id="innerRow">
                 <ol class="employeeTwoWalking">
-                      
+                {{#each dog}}
+                {{#unless stage 3}}
+                {{#unless assigned_walker 2}}
+                {{> dog/dogs-block}}
+                {{/unless}}
+                {{/unless}}
+                {{/each}} 
                 </ol>
                 </div>
             </div>
@@ -64,12 +82,24 @@
             <div class="employeeThree" id="column">
                 <div class="employeeThreeNeedWalk" id="innerRow">
                 <ol class="employeeThreeWalkList">
-                      
+                {{#each dog}}
+                {{#unless stage 2}}
+                {{#unless assigned_walker 3}}
+                {{> dog/dogs-block}}
+                {{/unless}}
+                {{/unless}}
+                {{/each}}     
                 </ol>
                 </div>
                 <div class="employeeThreeActiveWalk" id="innerRow">
                 <ol class="employeeThreeWalking">
-                      
+                {{#each dog}}
+                {{#unless stage 3}}
+                {{#unless assigned_walker 3}}
+                {{> dog/dogs-block}}
+                {{/unless}}
+                {{/unless}}
+                {{/each}} 
                 </ol>
                 </div>
             </div>
