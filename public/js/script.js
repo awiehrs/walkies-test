@@ -11,6 +11,7 @@ $(document).ready(() => {
 
   // Button functions
   function viewClients() {
+    console.log("hide homepage");
     $(".homePage").addClass("hidePage");
     $(".dogBox").removeClass("hidePage");
     // Add script to change text on button from "View Client List" to "View Home Page" or make a second button for view home appear
