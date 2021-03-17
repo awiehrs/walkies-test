@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 module.exports = (sequelize, DataTypes) => {
-  
   const dog = sequelize.define("dog", {
     dog_name: {
       type: DataTypes.STRING,

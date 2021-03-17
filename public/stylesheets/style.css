@@ -49,11 +49,13 @@ h1 {
     clear: both;
 }
 
-.buttonDiv {
+.viewClients {
     margin-left: 60px;
 }
 
-
+.viewHome {
+	margin-left: 90px;
+}
 
 .topBtn {
 	box-shadow: 0px 10px 14px -7px #276873;
@@ -80,10 +82,8 @@ h1 {
 }
 
 .addDogButton {
-	margin-left: auto;
+	margin-left: 240px;
 	margin-right: auto;
-	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-	background-color:#599bb3;
 	border-radius:8px;
 	display:inline-block;
 	cursor:pointer;
@@ -102,6 +102,13 @@ h1 {
     
 }
 
+.exit {
+	text-align: right;
+	color: white;
+	cursor: pointer;
+	font-size: 17px;
+}
+
 .addDogDiv {
 	margin-right: 600px;
 }
@@ -111,6 +118,9 @@ h1 {
     height: 470px;
     width: 490px;
     border-radius: 4px;
+	margin-top: -30px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 form ul
@@ -299,12 +309,13 @@ textarea.small
 .dogBox {
 	background-color: #e4e4e4;
 	width: 800px;
-	height: 300px;
+	height: 330px;
 	margin-left: auto;
 	margin-right: auto;
 	border-style: solid;
 	border-color: #0e3f77;
 	border-width: 3px;
+	overflow-y: scroll;
 }
 
 @media screen and (max-width: 600px) {
@@ -315,6 +326,7 @@ textarea.small
 
 .bottomPaws {
 	margin-top: 60px;
+	position: sticky;
 }
 
 .infoButton {

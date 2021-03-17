@@ -1,5 +1,5 @@
 {
-    "name": "project2",
+    "name": "walkies-test",
     "version": "1.0.0",
     "description": "Dog walk management system",
     "main": "server.js",
@@ -16,6 +16,7 @@
     "dependencies": {
         "bcryptjs": "2.4.3",
         "body-parser": "^1.19.0",
+        "cleave.js": "^1.6.0",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "express-handlebars": "^5.2.1",

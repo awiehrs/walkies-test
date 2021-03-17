@@ -5,56 +5,134 @@ $(document).ready(() => {
   console.log(todayDisplay);
   $("#currentDay").text(todayDisplay);
 
-  // Button functions
+  $(".viewHome").hide();
+  // Use Handlebars to render the main index.html page with the movies in it.
+  const formDisplay = false;
+  const clientsDisplay = false;
 
-  function viewClients(e) {
-    e.preventDefault();
+  // Button functions
+  function viewClients() {
+    console.log("hide homepage");
     $(".homePage").addClass("hidePage");
     $(".dogBox").removeClass("hidePage");
     // Add script to change text on button from "View Client List" to "View Home Page" or make a second button for view home appear
   }
 
-  function addFormDisplay(e) {
-    e.preventDefault();
+  function HideClients() {
+    $(".homePage").removeClass("hidePage");
+    $(".dogBox").addClass("hidePage");
+    $(".viewHome").hide();
+    $(".viewClients").show();
+    // Add script to change text on button from "View Client List" to "View Home Page" or make a second button for view home appear
+  }
+
+  function DisplayForm() {
     $(".addForm").removeClass("hidePage");
     $(".dogBox").addClass("hidePage");
   }
 
-  $(".addDogButton").click(addFormDisplay);
-  $(".topBtn").click(viewClients);
+  function HideForm() {
+    $(".addForm").addClass("hidePage");
+    $(".dogBox").removeClass("hidePage");
+    $(".bottomPaws").show();
+  }
 
+  function FormBtn() {
+    $(".addForm").removeClass("hidePage");
+    $(".dogBox").addClass("hidePage");
+    $(".bottomPaws").hide();
+    // if ((formDisplay = false)) {
+    //   DisplayForm();
+    //   HideClients();
+    //   formDisplay = true;
+    // } else {
+    //   HideForm();
+    //   formDisplay = false;
+    // }
+  }
+
+  function ClientBtn() {
+    console.log("hit view clients button");
+    $(".homePage").addClass("hidePage");
+    $(".dogBox").removeClass("hidePage");
+    $(".viewClients").hide();
+    $(".viewHome").show();
+    //if ((formDisplay = false)) {
+    //   viewClients();
+    //   HideForm();
+    //   formDisplay = true;
+    // } else {
+    //   HideClients();
+    //   formDisplay = false;
+    // }
+  }
+
+  $(".addDogButton").click(FormBtn);
+  $(".viewClients").click(ClientBtn);
+  $(".exit").click(HideForm);
+  $(".viewHome").click(HideClients);
+
+  //submit new dog
   $("input#newDog").on("click", () => {
+    //pull data from form
     const dog_Name = $("input#dog_Name").val();
-    if ($.trim(dog_name) !== " ") {
-      $.post("ajax/dog_Name.php", { dog_Name: dog_Name });
-    }
     const breed = $("input#breed").val();
-    if ($.trim(breed) !== " ") {
-      $.post("ajax/breed.php", { breed: breed });
-    }
     const owner_Name = $("input#owner_Name").val();
-    if ($.trim(owner_Name) !== " ") {
-      $.post("ajax/owner_Name.php", { owner_Name: owner_Name });
-    }
     const dog_info = $("input#dog_info").val();
-    $.post("ajax/dog_info.php", { dog_info: dog_info });
-    if ($("#long_walk").attr("checked")) {
-      $.post("ajax/long_walk.php", { long_walk: true });
-    } else {
-      $.post("ajax/long_walk.php", { long_walk: false });
-    }
     const address = $("input#address").val();
-    //Script for owner address
-    const phone_number = $("input#phone_number").val();
-    //Script for phone number
     const extra_notes = $("input#extra_notes").val();
-    //Script for recording extra notes
-    const stage = 0;
-    // starting stage is 0, verify if this syntax is correct
-    const assigned_walker = 0;
-    // assigned walker is default 0
+    const phone_number = new Cleave("input#phone_number", {
+      phone: true,
+      phoneRegionCode: "{country}"
+    });
+
+    // Store new dog data
+    $.post("api/dogs", {
+      json_string: JSON.stringify({
+        dog_Name: dog_Name,
+        breed: breed,
+        owner_Name: owner_Name,
+        dog_info: dog_info,
+        address: address,
+        phone_number: phone_number,
+        extra_notes: extra_notes,
+        stage: "A",
+        assigned_walker: null
+      })
+    });
     $(".addForm").addClass("hidePage");
   });
 
+  let newStage = "A";
 
+  function stageLoop() {
+    const stage = $(this).data("newStage");
+    // Loop stages
+    /*eslint indent: [3, 9, {"SwitchCase": 1}]*/
+    switch (stage) {
+      case "A":
+        newStage = "B";
+        break;
+      case "B":
+        newStage = "C";
+        break;
+      case "C":
+        newStage = "A";
+    }
+  }
+
+  $(".changeWalkState").on("click", event => {
+    const id = $(this).data("id");
+    stageLoop();
+    //send the put request
+    $.ajax("/api/dogs/" + id, {
+      type: "PUT"
+    }).then(() => {
+      console.log("Changed stage to ", newStage);
+      location.reload();
+    });
+
+    console.log({ id });
+    console.log({ newStage });
+  });
 });
