@@ -95,7 +95,6 @@ $(document).ready(() => {
     $.post("api/dogs", {
       type: "PUT",
       data: newDog
-      })
     });
     $(".addForm").addClass("hidePage");
   });
