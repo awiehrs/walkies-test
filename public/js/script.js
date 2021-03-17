@@ -88,7 +88,7 @@ $(document).ready(() => {
         }),
         extra_notes: $("input#extra_notes").val(),
         stage: 1,
-        assigned_walker: null
+        assigned_walker: $("input#assigned_walker").val()
       })
     };
     // Store new dog data
