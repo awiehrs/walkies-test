@@ -7,7 +7,7 @@ $(document).ready(() => {
 
   $(".viewHome").hide();
   // Use Handlebars to render the main index.html page with the movies in it.
-  let formDisplay = false;
+  const formDisplay = false;
   const clientsDisplay = false;
 
   // Button functions
@@ -80,8 +80,11 @@ $(document).ready(() => {
     const owner_Name = $("input#owner_Name").val();
     const dog_info = $("input#dog_info").val();
     const address = $("input#address").val();
-    const phone_number = $("input#phone_number").val();
     const extra_notes = $("input#extra_notes").val();
+    const phone_number = new Cleave("input#phone_number", {
+      phone: true,
+      phoneRegionCode: "{country}"
+    });
 
     // Store new dog data
     $.post("api/dogs", {

@@ -1,6 +1,6 @@
 const express = require("express");
 const dog = require("../models/dog.js");
-
+const db = require("../models");
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -41,3 +41,11 @@ router.put("/api/dogs/:id", (req, res) => {
 });
 
 module.exports = router;
+
+module.exports = function(app) {
+  app.get("/", (req, res) => {
+    res.render("index");
+  });
+};
+
+console.log("got past html-routes.js");
