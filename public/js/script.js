@@ -17,6 +17,8 @@ $(document).ready(() => {
   });
 
   let formDisplay = false;
+  let clientsDisplay = false;
+
   // Button functions
   function viewClients(e) {
     e.preventDefault();
@@ -47,15 +49,16 @@ $(document).ready(() => {
   $(".addDogButton").click(
     if (formDisplay = false) {
       DisplayForm()
+      formDisplay = true;
     } else {
       HideForm()
     });
 
   $(".topBtn").click(
-    if (formDisplay = false) {
-    viewClients(e) 
+    if (clientsDisplay = false) {
+    viewClients() 
   } else {
-    HideClients(e)
+    HideClients()
   });
 
   //submit new dog
@@ -76,12 +79,11 @@ $(document).ready(() => {
         breed: breed,
         owner_Name: owner_Name,
         dog_info: dog_info,
-        assigned_walker: assigned_walker,
         address: address,
         phone_number: phone_number,
         extra_notes: extra_notes,
-        stage: stage,
-        assigned_walker: assigned_walker
+        stage: 1,
+        assigned_walker: null
       })
     });
     $(".addForm").addClass("hidePage");
