@@ -75,29 +75,26 @@ $(document).ready(() => {
   //submit new dog
   $("input#newDog").on("click", () => {
     //pull data from form
-    const dog_Name = $("input#dog_Name").val();
-    const breed = $("input#breed").val();
-    const owner_Name = $("input#owner_Name").val();
-    const dog_info = $("input#dog_info").val();
-    const address = $("input#address").val();
-    const extra_notes = $("input#extra_notes").val();
-    const phone_number = new Cleave("input#phone_number", {
-      phone: true,
-      phoneRegionCode: "{country}"
-    });
-
-    // Store new dog data
-    $.post("api/dogs", {
+    const newDog = {
       json_string: JSON.stringify({
-        dog_Name: dog_Name,
-        breed: breed,
-        owner_Name: owner_Name,
-        dog_info: dog_info,
-        address: address,
-        phone_number: phone_number,
-        extra_notes: extra_notes,
+        dog_Name: $("input#dog_Name").val(),
+        breed: $("input#breed").val(),
+        owner_Name: $("input#dog_info").val(),
+        dog_info: $("input#dog_info").val(),
+        address: $("input#address").val(),
+        phone_number: new Cleave("input#phone_number", {
+          phone: true,
+          phoneRegionCode: "{country}"
+        }),
+        extra_notes: $("input#extra_notes").val(),
         stage: 1,
         assigned_walker: null
+      })
+    };
+    // Store new dog data
+    $.post("api/dogs", {
+      type: "PUT",
+      data: newDog
       })
     });
     $(".addForm").addClass("hidePage");
@@ -126,7 +123,8 @@ $(document).ready(() => {
     stageLoop();
     //send the put request
     $.ajax("/api/dogs/" + id, {
-      type: "PUT"
+      type: "PUT",
+      data: newDog
     }).then(() => {
       console.log("Changed stage to ", newStage);
       location.reload();
