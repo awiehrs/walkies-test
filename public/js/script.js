@@ -29,8 +29,8 @@ $(document).ready(() => {
 
   function HideClients(e) {
     e.preventDefault();
-    $(".homePage").addClass("hidePage");
-    $(".dogBox").removeClass("hidePage");
+    $(".homePage").removeClass("hidePage");
+    $(".dogBox").addClass("hidePage");
     // Add script to change text on button from "View Client List" to "View Home Page" or make a second button for view home appear
   }
 
@@ -42,8 +42,8 @@ $(document).ready(() => {
 
   function HideForm(e) {
     e.preventDefault();
-    $(".addForm").removeClass("hidePage");
-    $(".dogBox").addClass("hidePage");
+    $(".addForm").addClass("hidePage");
+    $(".dogBox").removeClass("hidePage");
   }
 
   $(".addDogButton").on("click", () => {
