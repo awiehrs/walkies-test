@@ -96,28 +96,28 @@ $(document).ready(() => {
         address: address,
         phone_number: phone_number,
         extra_notes: extra_notes,
-        stage: "A",
+        stage: 1,
         assigned_walker: null
       })
     });
     $(".addForm").addClass("hidePage");
   });
 
-  let newStage = "A";
+  let newStage = 1;
 
   function stageLoop() {
     const stage = $(this).data("newStage");
     // Loop stages
     /*eslint indent: [3, 9, {"SwitchCase": 1}]*/
     switch (stage) {
-      case "A":
-        newStage = "B";
+      case 1:
+        newStage = 2;
         break;
-      case "B":
-        newStage = "C";
+      case 2:
+        newStage = 3;
         break;
-      case "C":
-        newStage = "A";
+      case 3:
+        newStage = 1;
     }
   }
 
