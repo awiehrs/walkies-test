@@ -36,6 +36,7 @@ $(document).ready(() => {
   function FormBtn() {
     if ((formDisplay = false)) {
       DisplayForm();
+      HideClients();
       formDisplay = true;
     } else {
       HideForm();
@@ -46,6 +47,7 @@ $(document).ready(() => {
   function ClientBtn() {
     if ((formDisplay = false)) {
       viewClients();
+      HideForm();
       formDisplay = true;
     } else {
       HideClients();
@@ -87,7 +89,6 @@ $(document).ready(() => {
   let newStage = "A";
 
   function stageLoop() {
-    const id = $(this).data("id");
     const stage = $(this).data("newStage");
     // Loop stages
     switch (stage) {
@@ -103,6 +104,7 @@ $(document).ready(() => {
   }
 
   $(".changeWalkState").on("click", event => {
+    const id = $(this).data("id");
     stageLoop();
     //send the put request
     $.ajax("/api/dogs/" + id, {
