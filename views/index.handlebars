@@ -111,6 +111,7 @@
             <ol class="clientList">
                 {{#each dog}}
                 {{#unless stage 1}}
+                {{> dog/dogs-block}}
                 {{/unless}}
                 {{/each}}
             </ol>
