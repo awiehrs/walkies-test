@@ -71,9 +71,7 @@
             <div class="addDogButton"><button class="topBtn">Add New Dog to Client List</button></div><br>
             <ol class="clientList">
                 {{#each dogs}}
-                      {{#unless stage}}
-                      {{> dogs/dog-block stage=1}}
-                      {{/unless}}
+
                 {{/each}}
             </ol>
         </div>

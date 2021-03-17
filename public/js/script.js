@@ -45,10 +45,10 @@ $(document).ready(() => {
 
   function ClientBtn() {
     if ((formDisplay = false)) {
-      DisplayForm();
+      viewClients();
       formDisplay = true;
     } else {
-      HideForm();
+      HideClients();
       formDisplay = false;
     }
   }
@@ -77,33 +77,33 @@ $(document).ready(() => {
         address: address,
         phone_number: phone_number,
         extra_notes: extra_notes,
-        stage: 1,
+        stage: "A",
         assigned_walker: null
       })
     });
     $(".addForm").addClass("hidePage");
   });
 
-  $(".changeWalkState").on("click", function(event) {
+  let newStage = "A";
+
+  function stageLoop() {
     const id = $(this).data("id");
     const stage = $(this).data("newStage");
-    let newStage = 1;
-
     // Loop stages
     switch (stage) {
-      case 1:
-        // code block
-        newStage = 2;
+      case "A":
+        newStage = "B";
         break;
-      case 2:
-        // code block
-        newStage = 3;
+      case "B":
+        newStage = "C";
         break;
-      case 3:
-        // code block
-        newStage = 1;
+      case "C":
+        newStage = "A";
     }
+  }
 
+  $(".changeWalkState").on("click", event => {
+    stageLoop();
     //send the put request
     $.ajax("/api/dogs/" + id, {
       type: "PUT"
