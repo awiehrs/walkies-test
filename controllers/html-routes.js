@@ -9,44 +9,45 @@ router.get("/", (req, res) => {
     const hbsObject = {
       dogs: data
     };
-    console.log(hbsObject);
+    console.log(hbsObject.dogs[0]);
     res.render("index", hbsObject);
   });
 });
 
-router.post("/api/dogs", (req, res) => {
-  dog.create(["name", "stage"], [req.body.name, req.body.stage], result => {
-    // Send back the ID of the new quote
-    res.json({ id: result.insertId });
-  });
-});
 
-router.put("/api/dogs/:id", (req, res) => {
-  const condition = `id = ${req.params.id}`;
+// router.post("/api/dogs", (req, res) => {
+//   dog.create(["name", "stage"], [req.body.name, req.body.stage], result => {
+//     // Send back the ID of the new quote
+//     res.json({ id: result.insertId });
+//   });
+// });
 
-  console.log("condition", condition);
+// router.put("/api/dogs/:id", (req, res) => {
+//   const condition = `id = ${req.params.id}`;
 
-  dog.update(
-    {
-      stage: req.body.stage
-    },
-    condition,
-    result => {
-      if (result.changedRows === 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
-      }
-      res.status(200).end();
-    }
-  );
-});
+//   console.log("condition", condition);
+
+//   dog.update(
+//     {
+//       stage: req.body.stage
+//     },
+//     condition,
+//     result => {
+//       if (result.changedRows === 0) {
+//         // If no rows were changed, then the ID must not exist, so 404
+//         return res.status(404).end();
+//       }
+//       res.status(200).end();
+//     }
+//   );
+// });
 
 module.exports = router;
 
-module.exports = function(app) {
-  app.get("/", (req, res) => {
-    res.render("index");
-  });
-};
+// module.exports = function(app) {
+//   app.get("/", (req, res) => {
+//     res.render("index");
+//   });
+// };
 
-console.log("got past html-routes.js");
+// console.log("got past html-routes.js");

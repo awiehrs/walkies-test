@@ -31,15 +31,21 @@
             <div class="employeeOne" id="column">
                 <div class="employeeOneNeedWalk" id="innerRow">
                 <ol class="employeeOneWalkList">
-                {{#each dog}}
+                     {{#each dogs}}
+                     {{#dataValues}}
+                     {{!-- {{#unless stage}} --}}
+                     {{> dogs/dogs-block}}
+                     {{!-- {{/unless}} --}}
+                     {{/dataValues}}
+                     {{/each}}
+                {{!-- {{#each dogs}}
                 {{#unless stage 2}}
                 {{#unless assigned_walker 1}}
 
-                {{/unless}}
-                {{/unless}}
-                {{/each}}
+                
+                {{/each}} --}}
                 </ol>
-                </div>
+                {{!-- </div>
                 <div class="employeeOneActiveWalk" id="innerRow">
                 <ol class="employeeOneWalking">
                 {{#each dog}}
@@ -47,14 +53,13 @@
                 {{#unless assigned_walker 1}}
 
                 {{/unless}}
-                {{/unless}}
                 {{/each}}
                 </ol>
-                </div>
+                </div> --}}
                 
             </div>
             <!-- Employee Two !-->
-            <div class="employeeTwo" id="column">
+            {{!-- <div class="employeeTwo" id="column">
                 <div class="employeeTwoNeedWalk" id="innerRow">
                 <ol class="employeeTwoWalkList">
                 {{#each dog}}
@@ -115,7 +120,7 @@
                 {{/unless}}
                 {{/each}}
             </ol>
-        </div>
+        </div> --}}
 
         <!--Add Dog Form-->
         <div class="addForm hidePage">
