@@ -20,7 +20,7 @@ Walkies is a management tool for dog walking businesses. It's easy to use, keeps
 * [Questions](#questions)
 
 # Installation
-
+    Nothing needs to be installed to use Walkies. Just follow the Heroku link! Happy Dog Walking!
 
 # Usage
     The Walkies index is where you can assign dogs to employees and update their walk status. 
