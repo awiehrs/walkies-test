@@ -14,9 +14,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //ENABLE if you plan to use controllers as routes/orm.
-require("./controllers/html-routes.js")(app);
-console.log("got past html-routes reference");
-console.log("this is the line right after");
+const routes = require("./controllers/html-routes.js");
+app.use(routes);
 
 db.sequelize.sync().then(() => {
   console.log("inside the sync function");

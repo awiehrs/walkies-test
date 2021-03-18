@@ -4,7 +4,8 @@ const db = require("../models");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  dog.call(data => {
+  console.log("Testing Get Function");
+  db.Dog.findAll({}).then(data => {
     const hbsObject = {
       dogs: data
     };
