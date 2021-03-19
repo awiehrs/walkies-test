@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 $(document).ready(() => {
+  // Display current date
   const todayDisplay = moment().format("ddd[ - ] MMMM Do[,] YYYY");
   console.log(todayDisplay);
   $("#currentDay").text(todayDisplay);
@@ -76,6 +77,7 @@ $(document).ready(() => {
   $(".addDog").on("submit", e => {
     e.preventDefault();
 
+    // Get data from Form
     const newDog = {
       json_string: JSON.stringify({
         dog_Name: $("input#dog_Name").val(),
