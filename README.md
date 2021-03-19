@@ -26,13 +26,13 @@ Walkies is a management tool for dog walking businesses. It's easy to use, keeps
     The Walkies index is where you can assign dogs to employees and update their walk status. 
     Clicking the 'View Client List' button will take the user to a database of their clients' dogs.
 
-<img src = /images/WalkiesScreenshot.png  width=500>
+<img src = /public/images/WalkiesScreenshot.png  width=500>
 
 
     On this page, we see the pool of our saved clients and their dogs. To add to this database, press the 'Add New Dog' button. 
     Fill out the necessary information in the modal and hit submit.
 
-<img src = /images/WalkiesScreenshot2.png width=500>
+<img src = /public/images/WalkiesScreenshot2.png width=500>
 
 
 
@@ -44,7 +44,7 @@ Walkies is a management tool for dog walking businesses. It's easy to use, keeps
 
 # License
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Wtrickser/Project2) 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/awiehrs/walkies-test) 
 
 
 # Questions
