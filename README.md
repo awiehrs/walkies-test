@@ -32,7 +32,7 @@ Walkies is a management tool for dog walking businesses. It's easy to use, keeps
     On this page, we see the pool of our saved clients and their dogs. To add to this database, press the 'Add New Dog' button. 
     Fill out the necessary information in the modal and hit submit.
 
-<img src = /public/images/WalkiesScreenshot2.png width=500>
+<img src = public/images/WalkiesScreenshot2.png width=500>
 
 
 
