@@ -10,10 +10,9 @@ CREATE TABLE dogs (
     breed VARCHAR(50) NOT NULL,
     owner_name VARCHAR(50) NOT NULL,
     address VARCHAR(100) NOT NULL,
-    phone_number VARCHAR(12) NOT NULL,
+    phone_number VARCHAR(50) NOT NULL,
     extra_notes TEXT(255),
-    stage VARCHAR NOT NULL,
-    assigned_walker INT,
+    needswalk boolean DEFAULT false,
     total_walks INT NOT NULL
 );
 

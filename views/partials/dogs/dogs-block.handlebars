@@ -1,19 +1,13 @@
 <li>
     {{!-- {{#if stage}} --}}
-	{{dog_name}} - {{owner_name}}
-    {{!-- {{/if}} --}}
-    {{!-- <button class="infoButton" data-id="{{id}}">
-        <!-- This button shows info about the dogs
-        Write script to pull specific dogs information
-        This font-awesome icon is the info icon !-->
-        <i class="fas fa-info-circle" id="infoIcon"></i> !-->
+	{{dog_name}} - {{owner_name}} - {{phone_number}} - {{#if needswalk}}
+    {{!-- {{#needs a walk button}} --}}
+    <button class="walkbtn" data-id="{{id}}" data-needswalk="{{needswalk}}">
+        Needs a walk today
     </button>
-    
-
-	<button class="changeWalkState" data-id="{{id}}" dataNewStage="{{stage}}">
-		<!--Add Script for changing walk state
-        This button changes the stage from 1 to 2 
-        {{#if devoured}}Devour!{{else}}Eat Again!{{/if}} !-->
-	</button> --}}
-
+    {{/if}}
+    {{!-- {{#has been walked button}} --}}
+    <button class="donebtn" data-id="{{this.id}}">
+        Has been walked
+    </button>
 </li>

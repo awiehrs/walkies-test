@@ -72,9 +72,10 @@ $(document).ready(() => {
   $(".exit").click(HideForm);
   $(".viewHome").click(HideClients);
 
-  //submit new dog
-  $("input#newDog").on("click", () => {
-    //pull data from form
+  // Add a new dog to DataBase
+  $(".addDog").on("submit", e => {
+    e.preventDefault();
+
     const newDog = {
       json_string: JSON.stringify({
         dog_Name: $("input#dog_Name").val(),
@@ -91,45 +92,42 @@ $(document).ready(() => {
         assigned_walker: $("input#assigned_walker").val()
       })
     };
-    // Store new dog data
-    $.post("api/dogs", {
-      type: "PUT",
+    // Send the POST request.
+    $.ajax("/api/burgers", {
+      type: "POST",
       data: newDog
+    }).then(() => {
+      location.reload();
     });
     $(".addForm").addClass("hidePage");
   });
 
-  let newStage = 1;
-
-  function stageLoop() {
-    const stage = $(this).data("newStage");
-    // Loop stages
-    /*eslint indent: [3, 9, {"SwitchCase": 1}]*/
-    switch (stage) {
-      case 1:
-        newStage = 2;
-        break;
-      case 2:
-        newStage = 3;
-        break;
-      case 3:
-        newStage = 1;
-    }
-  }
-
-  $(".changeWalkState").on("click", event => {
+  // Set needsWalk to True
+  $(".walkbtn").on("click", function(e) {
+    e.preventDefault();
     const id = $(this).data("id");
-    stageLoop();
-    //send the put request
+    const needswalk = $(this).data("needswalk");
+
+    // Send the PUT request.
     $.ajax("/api/dogs/" + id, {
       type: "PUT",
-      data: newDog
+      data: { needswalk: true }
     }).then(() => {
-      console.log("Changed stage to ", newStage);
       location.reload();
     });
+  });
 
-    console.log({ id });
-    console.log({ newStage });
+  // Set needsWalk to False
+  $(".donebtn").on("click", function(e) {
+    e.preventDefault();
+    const id = $(this).data("id");
+
+    // Send the PUT request.
+    $.ajax("/api/dogs/" + id, {
+      type: "PUT",
+      data: { needswalk: false }
+    }).then(() => {
+      location.reload();
+    });
   });
 });

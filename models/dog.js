@@ -22,13 +22,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     extra_notes: DataTypes.TEXT,
-    stage: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0
-    },
-    assigned_walker: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0
+    needswalk: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     },
     total_walks: {
       type: DataTypes.INTEGER,

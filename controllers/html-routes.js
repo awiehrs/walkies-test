@@ -14,7 +14,6 @@ router.get("/", (req, res) => {
   });
 });
 
-
 // router.post("/api/dogs", (req, res) => {
 //   dog.create(["name", "stage"], [req.body.name, req.body.stage], result => {
 //     // Send back the ID of the new quote
