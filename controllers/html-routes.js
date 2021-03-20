@@ -16,13 +16,13 @@ router.get("/", (req, res) => {
 });
 
 // routes for switch needswalk value
-router.put("/api/burgers/:id", (req, res) => {
+router.put("/api/dogs/:id", (req, res) => {
   const condition = "id = " + req.params.id;
   console.log("condition", condition);
 
   burger.update(
     {
-      devoured: true
+      needswalk: true
     },
     condition,
     result => {
