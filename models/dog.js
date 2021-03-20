@@ -21,7 +21,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    extra_notes: DataTypes.TEXT,
+    extra_notes: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
     needswalk: {
       type: DataTypes.BOOLEAN,
       defaultValue: false

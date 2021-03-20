@@ -3,15 +3,35 @@ const dog = require("../models/dog.js");
 const db = require("../models");
 const router = express.Router();
 
+// routes for getting data
 router.get("/", (req, res) => {
   console.log("Testing Get Function");
-  db.Dog.findAll({}).then(data => {
+  db.dog.findAll({}).then(data => {
     const hbsObject = {
       dogs: data
     };
     console.log(hbsObject.dogs[0]);
     res.render("index", hbsObject);
   });
+});
+
+// routes for switch needswalk value
+router.put("/api/burgers/:id", (req, res) => {
+  const condition = "id = " + req.params.id;
+  console.log("condition", condition);
+
+  burger.update(
+    {
+      devoured: true
+    },
+    condition,
+    result => {
+      if (result.changedRows === 0) {
+        return res.status(404).end();
+      }
+      res.status(200).end();
+    }
+  );
 });
 
 // router.post("/api/dogs", (req, res) => {
