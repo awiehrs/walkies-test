@@ -1,5 +1,5 @@
 const express = require("express");
-const Dog = require("../models/dog");
+const dog = require("../models/dog");
 const db = require("../models");
 const router = express.Router();
 
