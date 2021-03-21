@@ -28,83 +28,90 @@
             Teyana Randalls = 3 !-->
 
             <!--Employee One !-->
-            <div class="dogBox hidePage">
-                <ol class="clientList">
-                    {{#each dogs}}
-                    {{#dataValues}}
-                    {{!-- {{#only show dogs that need a walk}} --}}
-                    {{#unless needswalk}}
-                    {{> dogs/dogs-block needswalk=true}}
-                    {{/unless}}
-                    {{/dataValues}}
-                    {{/each}}
-                </ol>
+            <div class="employeeOne" id="column">
+                <div class="employeeOneNeedWalk" id="innerRow">
+                
+                </div>
+                <div class="employeeOneActiveWalk" id="innerRow">
+                
+                </div> 
+                
             </div>
-        </div>
+            <!-- Employee Two !-->
+             <div class="employeeTwo" id="column">
+                 <div class="employeeTwoNeedWalk" id="innerRow">
+                
+                </ol>--}}
+                </div>
+                <div class="employeeTwoActiveWalk" id="innerRow">
+                
+                </div>
+            </div>
+            <!-- Employee Three !-->
+            <div class="employeeThree" id="column">
+                <div class="employeeThreeNeedWalk" id="innerRow">
         
+                </div>
+        <div class="employeeThreeActiveWalk" id="innerRow">
+                
+                </div>
+            </div>
+        </div><br>
+        
+
         <!--Client List-->
         <div class="dogBox hidePage">
             <div class="addDogButton"><button class="topBtn">Add New Dog to Client List</button></div><br>
             <ol class="clientList">
                 {{#each dogs}}
-                {{#dataValues}}
-                {{!-- {{#list all dogs}} --}}
+                {{#dataValues}} 
                 {{> dogs/dogs-block}}
                 {{/dataValues}}
                 {{/each}}
-            </ol>
-        </div>
+                </ol> 
+        </div> 
 
         <!--Add Dog Form-->
         <div class="addForm hidePage">
             <div class="formHead"><p class="exit"><b>X</b></p></div>
             <form method="post" action="">
-            <!--input dog's name-->
             <li id="li_1" >
-                <label class="description" for="dog_Name">Dog's Name </label>
-                <div>
-                    <input id="dog_Name" name="dog_Name" class="element text small" type="text" maxlength="255" value=""/> 
-                </div>
-            </li>
-            <!--input breed--> 
-            <li id="li_2" >
-                <label class="description" for="breed">Breed </label>
-                <div>
-                    <input id="breed" name="breed" class="element text medium" type="text" maxlength="255" value=""/> 
-                </div>
-            </li>
-            <!--input owner's name--> 
-            <li id="li_3" >
-                <label class="description" for="owner_Name">Owner's Name </label>
-                <div>
-                    <input id="owner_Name" name="owner_Name" class="element text medium" type="text" maxlength="255" value=""/> 
-                </div>
-            </li>
-            <!--input address--> 
-            <li id="li_4" >
-                <label class="description" for="address">Address </label>
-                <div>
-                    <input id="element_4" name="element_4" class="element text large" type="text" maxlength="255" value=""/> 
-                </div>
-            </li>
-            <!--input phone number--> 
-            <li id="li_5" >
-                <label class="description" for="phone_number">Phone Number </label>
-                <div>
-                    <input id="element_5" name="element_5" class="element text medium" type="text" maxlength="255" value=""/> 
-                </div>
-            </li>
-            <!--input extra notes--> 
-            <li id="li_6" >
-                <label class="description" for="extra_notes">Extra Notes: </label>
-                <div>
-                    <textarea id="element_6" name="element_6" class="element textarea small" type="text" maxlength="355" value=""></textarea> 
+            <label class="description" for="dog_Name">Dog's Name </label>
+            <div>
+                <input id="dog_Name" name="dog_Name" class="element text small" type="text" maxlength="255" value=""/> 
+            </div> 
+            </li>		<li id="li_2" >
+            <label class="description" for="breed">Breed </label>
+            <div>
+                <input id="breed" name="breed" class="element text medium" type="text" maxlength="255" value=""/> 
+            </div> 
+            </li>		<li id="li_3" >
+            <label class="description" for="owner_Name">Owner's Name </label>
+            <div>
+                <input id="owner_Name" name="owner_Name" class="element text medium" type="text" maxlength="255" value=""/> 
+            </div> 
+            </li>		<li id="li_4" >
+            <label class="description" for="address">Address </label>
+            <div>
+                <input id="element_4" name="element_4" class="element text large" type="text" maxlength="255" value=""/> 
             </div>
-            </li>		
-            <!--Submit button--> 
-            <li class="buttons">
-                <input type="hidden" name="form_id" value="18945"/>    
-                <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit"/>
+            </li>		<li id="li_5" >
+            <label class="description" for="phone_number">Phone Number </label>
+            <div>
+                <input id="element_5" name="element_5" class="element text medium" type="text" maxlength="255" value=""/> 
+            </div> 
+            </li>		<li id="li_6" >
+            <label class="description" for="extra_notes">Extra Notes: </label>
+            <div>
+                <textarea id="element_6" name="element_6" class="element textarea small" type="text" maxlength="355" value=""></textarea> 
+            </div>
+                        </li>		
+            
+                
+                        <li class="buttons">
+                    <input type="hidden" name="form_id" value="18945" />
+                    
+                    <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
             </li>
                 </ul>
             </form>	
