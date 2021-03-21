@@ -10,11 +10,15 @@ CREATE TABLE dogs (
     breed VARCHAR(50) NOT NULL,
     owner_name VARCHAR(50) NOT NULL,
     address VARCHAR(100) NOT NULL,
-    phone_number VARCHAR(50) NOT NULL,
+    phone_number VARCHAR(12) NOT NULL,
     extra_notes TEXT(255),
-    needswalk boolean DEFAULT false,
-    total_walks INT NOT NULL
+    stage INT NOT NULL,
+    assigned_walker INT,
+    total_walks INT NOT NULL,
+    createdAt TIMESTAMP,
+    updatedAt TIMESTAMP
 );
+
 
 
 
