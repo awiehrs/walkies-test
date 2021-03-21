@@ -42,14 +42,6 @@ $(document).ready(() => {
     $(".addForm").removeClass("hidePage");
     $(".dogBox").addClass("hidePage");
     $(".bottomPaws").hide();
-    // if ((formDisplay = false)) {
-    //   DisplayForm();
-    //   HideClients();
-    //   formDisplay = true;
-    // } else {
-    //   HideForm();
-    //   formDisplay = false;
-    // }
   }
 
   function ClientBtn() {
@@ -58,14 +50,6 @@ $(document).ready(() => {
     $(".dogBox").removeClass("hidePage");
     $(".viewClients").hide();
     $(".viewHome").show();
-    //if ((formDisplay = false)) {
-    //   viewClients();
-    //   HideForm();
-    //   formDisplay = true;
-    // } else {
-    //   HideClients();
-    //   formDisplay = false;
-    // }
   }
 
   $(".addDogButton").click(FormBtn);
