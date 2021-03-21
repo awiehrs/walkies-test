@@ -8,6 +8,8 @@ const app = express();
 const db = require("./models");
 app.use(express.static("public"));
 
+
+
 //ENABLE if you plan to use handlebars.
 const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
