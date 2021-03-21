@@ -12,8 +12,7 @@ CREATE TABLE dogs (
     address VARCHAR(100) NOT NULL,
     phone_number VARCHAR(12) NOT NULL,
     extra_notes TEXT(255),
-    stage INT NOT NULL,
-    assigned_walker INT,
+    needswalk BOOLEAN NOT NULL,
     total_walks INT NOT NULL,
     createdAt TIMESTAMP,
     updatedAt TIMESTAMP
