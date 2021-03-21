@@ -1,12 +1,12 @@
 const express = require("express");
-const dog = require("../models/dog.js");
+const Dog = require("../models/dog");
 const db = require("../models");
 const router = express.Router();
 
 // routes for getting data
 router.get("/", (req, res) => {
   console.log("Testing Get Function");
-  db.dog.findAll({}).then(data => {
+  db.Dog.findAll({}).then(data => {
     const hbsObject = {
       dogs: data
     };
