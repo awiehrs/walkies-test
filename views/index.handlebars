@@ -23,7 +23,7 @@
                 <ol class="clientList">
                 {{#each dogs}}
                 {{#if needsWalk}} 
-                {{> dogs/dogs-block needsWalk=false}}
+                {{> dogs/dogs-block needswalk=true}}
                 {{/if}}
                 {{/each}}
                 </ol> 
@@ -37,7 +37,7 @@
             <ol class="clientList">
                 {{#each dogs}}
                 {{#dataValues}} 
-                {{> dogs/dogs-block}}
+                {{> dogs/dogs-block needswalk=false}}
                 {{/dataValues}}
                 {{/each}}
                 </ol> 

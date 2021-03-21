@@ -1,5 +1,4 @@
 const express = require("express");
-const dog = require("../models/dog");
 const db = require("../models");
 const router = express.Router();
 
@@ -15,14 +14,20 @@ router.get("/", (req, res) => {
   });
 });
 
+
 // routes for switch needswalk value
 router.put("/api/dogs/:id", (req, res) => {
-  const condition = "id = " + req.params.id;
+  const condition = `id =  + ${req.params.id}`;
   console.log("condition", condition);
 
-  burger.update(
+  db.Dog.update(
     {
-      needswalk: true
+      needswalk: req.body.needswalk,
+    },
+    {
+      where: {
+        id: req.body.id,
+      }
     },
     condition,
     result => {

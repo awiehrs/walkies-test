@@ -1,13 +1,8 @@
 <li>
     {{!-- {{#if stage}} --}}
-	{{dog_name}} - {{owner_name}} - {{phone_number}} - {{#if needswalk}}
-    {{!-- {{#needs a walk button}} --}}
-    <button class="walkbtn" data-id="{{id}}" data-needswalk="{{needswalk}}">
-        Needs a walk today
-    </button>
-    {{/if}}
+	<b>{{dog_name}}</b> <i class="fas fa-info-circle"></i> {{owner_name}} - {{phone_number}}
     {{!-- {{#has been walked button}} --}}
-    <button class="donebtn" data-id="{{this.id}}">
-        Has been walked
+    <button class="donebtn" data-id="{{this.id}}" data-needswalk="{{needswalk}}">
+        {{#if needswalk}}Completed Walk{{else}}Needs a Walk Today{{/if}}
     </button>
 </li>

@@ -92,7 +92,7 @@ $(document).ready(() => {
   $(".walkbtn").on("click", function(e) {
     e.preventDefault();
     const id = $(this).data("id");
-    const needswalk = $(this).data("needswalk");
+    
 
     // Send the PUT request.
     $.ajax("/api/dogs/" + id, {
@@ -107,7 +107,7 @@ $(document).ready(() => {
   $(".donebtn").on("click", function(e) {
     e.preventDefault();
     const id = $(this).data("id");
-
+    
     // Send the PUT request.
     $.ajax("/api/dogs/" + id, {
       type: "PUT",
