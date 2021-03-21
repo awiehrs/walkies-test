@@ -19,42 +19,14 @@
 
         <!-- Front Page !-->
         <div class="homePage ">
-            <div class="employeeOneColName" id="colHead">Pat Talbot</div>
-            <div class="employeeTwoColName" id="colHead">Sam Incandenza</div>
-            <div class="employeeThreeColName" id="colHead">Teyana Randalls</div>
-            <!--Each employee is assigned a number in database
-            Pat Talbot = 1
-            Sam Incandenza = 2
-            Teyana Randalls = 3 !-->
-
-            <!--Employee One !-->
-            <div class="employeeOne" id="column">
-                <div class="employeeOneNeedWalk" id="innerRow">
-                
-                </div>
-                <div class="employeeOneActiveWalk" id="innerRow">
-                
-                </div> 
-                
-            </div>
-            <!-- Employee Two !-->
-             <div class="employeeTwo" id="column">
-                 <div class="employeeTwoNeedWalk" id="innerRow">
-                
-                </ol>
-                </div>
-                <div class="employeeTwoActiveWalk" id="innerRow">
-                
-                </div>
-            </div>
-            <!-- Employee Three !-->
-            <div class="employeeThree" id="column">
-                <div class="employeeThreeNeedWalk" id="innerRow">
-        
-                </div>
-        <div class="employeeThreeActiveWalk" id="innerRow">
-                
-                </div>
+            <div class="dogsWalking">
+                <ol class="clientList">
+                {{#each dogs}}
+                {{#if needsWalk}} 
+                {{> dogs/dogs-block needsWalk=false}}
+                {{/if}}
+                {{/each}}
+                </ol> 
             </div>
         </div><br>
         
