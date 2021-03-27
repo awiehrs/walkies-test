@@ -58,33 +58,44 @@ $(document).ready(() => {
   $(".viewHome").click(HideClients);
 
   // Add a new dog to DataBase
-  $(".addDog").on("submit", e => {
+  $("#saveForm").on("click", e => {
     e.preventDefault();
-
+    console.log("btn clicked")
     // Get data from Form
     const newDog = {
-      json_string: JSON.stringify({
         dog_Name: $("input#dog_Name").val(),
         breed: $("input#breed").val(),
         owner_Name: $("input#dog_info").val(),
         dog_info: $("input#dog_info").val(),
         address: $("input#address").val(),
-        phone_number: new Cleave("input#phone_number", {
-          phone: true,
-          phoneRegionCode: "{country}"
-        }),
+        phone_number: $("input#phone_number").val(),
         extra_notes: $("input#extra_notes").val(),
-        stage: 1,
         assigned_walker: $("input#assigned_walker").val()
-      })
     };
     // Send the POST request.
-    $.ajax("/api/burgers", {
-      type: "POST",
-      data: newDog
-    }).then(() => {
-      location.reload();
+    fetch("/api/dog", {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json'
+      },
+
+      // make sure to serialize the JSON body
+      body: JSON.stringify(newDog),
+    }).then((response) => {
+      // Check that the response is all good
+      // Reload the page so the user can see the new quote
+      if (response.ok) {
+        location.reload('/');
+      } else {
+        alert('something went wrong!');
+      }
     });
+    // $.ajax("/api/dog", {
+    //   type: "POST",
+    //   data: newDog
+    // }).then(() => {
+    //   location.reload();
+    // });
     $(".addForm").addClass("hidePage");
   });
 

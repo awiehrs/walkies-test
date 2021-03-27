@@ -4,9 +4,12 @@ const express = require("express");
 
 const PORT = process.env.PORT || 8080;
 
+
 const app = express();
 const db = require("./models");
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //ENABLE if you plan to use handlebars.
 const exphbs = require("express-handlebars");
@@ -14,8 +17,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //ENABLE if you plan to use controllers as routes/orm.
-const routes = require("./controllers/html-routes.js");
+const routes = require("./routes/html-routes.js");
 app.use(routes);
+
 
 db.sequelize.sync().then(() => {
   console.log("inside the sync function");

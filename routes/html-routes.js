@@ -4,12 +4,12 @@ const router = express.Router();
 
 // routes for getting data
 router.get("/", (req, res) => {
-  console.log("Testing Get Function");
+  // console.log("Testing Get Function");
   db.Dog.findAll({}).then(data => {
     const hbsObject = {
       dogs: data
     };
-    console.log(hbsObject.dogs[0]);
+    // console.log(hbsObject.dogs[0]);
     res.render("index", hbsObject);
   });
 });
@@ -39,12 +39,13 @@ router.put("/api/dogs/:id", (req, res) => {
   );
 });
 
-// router.post("/api/dogs", (req, res) => {
-//   dog.create(["name", "stage"], [req.body.name, req.body.stage], result => {
-//     // Send back the ID of the new quote
-//     res.json({ id: result.insertId });
-//   });
-// });
+router.post("/api/dog", (req, res) => {
+  console.log("routes", req.body)
+  db.Dog.create(["name", "stage"], [req.body.name, req.body.stage], result => {
+    // Send back the ID of the new quote
+    res.json({ id: result.insertId });
+  });
+});
 
 // router.put("/api/dogs/:id", (req, res) => {
 //   const condition = `id = ${req.params.id}`;
